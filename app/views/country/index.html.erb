@@ -1,0 +1,29 @@
+<div class="index-page">
+  <%= image_tag('cities.avif', class:"logo")%>
+  <div>
+    <h1>City Name Searched: <b>"<%=@search_text%>"</b></h1>
+    <h2>Search Result: <b><%= @countries.length%></b> country names matched</h2>
+  </div>
+
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Country</th>
+        <th scope="col">Capital</th>
+        <th scope="col">Currency</th>
+      </tr>
+    </thead>
+
+    <tbody>
+    <% @countries.each.with_index do |country, index| %>
+      <tr>
+        <th scope="row"><%=index + 1%></th>
+        <td><%= link_to country['name']['official'], "#{request.base_url}/country/details?search_country_name=#{country['name']['common']}"%></td>
+        <td><%=country['capital'][0]%></td>
+        <td><%=country['languages'].values%></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

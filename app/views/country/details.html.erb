@@ -1,0 +1,31 @@
+<div class="details-page">
+    <div class="view">
+        <h1>Detailed View <span class="badge badge-secondary"><%=@search_full_name%></span></h1>
+        <h4><b>Country Name: </b><%= @country[0]["name"]["common"]%></h4>
+        <h4><b>Official Name: </b><%= @country[0]["name"]["official"]%></h4>
+        <h4><b>Native Names: </b>
+            <ul>
+            <% @country[0]['name']["nativeName"].keys.each do |langKey|%>
+                <li><%= @country[0]['name']["nativeName"][langKey]['official']%>
+                <%= @country[0]['name']["nativeName"][langKey]['common']%></li>
+            <%end%>
+            </ul>
+        </h4>
+        <h4><b>Capital: </b><%= @country[0]['capital'][0]%></h4>
+        <h4>
+            <b>Languages: </b>
+            <ul>
+                <% @country[0]["languages"].each do |lang|%>
+                    <li><%= lang[1]%></li>
+                <%end%>
+            </ul>
+        </h4>
+        <h4><b>Common Currency: </b>
+            <%currencies = @country[0]["currencies"]%>
+            <%= currencies[currencies.keys[0]]['name']%>
+        </h4>
+    </div>
+    <div class="cover">
+        <img src=<%="https://flagsapi.com/#{@country[0]['cca2']}/shiny/64.png"%>>
+    </div>
+</div>
