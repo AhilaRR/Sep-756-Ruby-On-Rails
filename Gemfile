@@ -26,14 +26,11 @@ gem "stimulus-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
+# Custom gem dependencies for the project
 gem "httparty"
-
 gem "pp"
-
 gem 'bootstrap-sass', '~> 3.4.1'
 gem 'sassc-rails', '>= 2.1.0'
-gem 'jquery-rails'
-gem 'jekyll'
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
